@@ -6,6 +6,6 @@ m = sr.Microphone()
 with m as source:
     audio = r.listen(source)
 
-value = r.recognize_amazon(audio)
+value = r.recognize_google(audio, language='ru')
 
 print(value)
