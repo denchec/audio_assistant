@@ -1,11 +1,21 @@
-import speech_recognition as sr
+from assistant_functions.alarm_clock import AlarmClock
+from get_command import recognize_voice_message
 
-r = sr.Recognizer()
-m = sr.Microphone()
 
-with m as source:
-    audio = r.listen(source)
+def main():
+    message = recognize_voice_message().split(' ')
+    command = message[0]
 
-value = r.recognize_google(audio, language='ru')
+    if command == 'будильник':
+        """
+        Голосовое сообщение должно быть следующего формата:
+        "Будильник на 7 часов/час 27 минут/минута/минуты"
+        """
+        print(message)
+        AlarmClock(message).execute()
 
-print(value)
+    print(message)
+
+
+if __name__ == '__main__':
+    main()

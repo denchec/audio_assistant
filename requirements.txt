@@ -1,2 +1,4 @@
 SpeechRecognition
 PyAudio
+playsound==1.2.2
+schedule
